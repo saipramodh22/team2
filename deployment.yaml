@@ -30,16 +30,16 @@ status: {}
 apiVersion: v1
 kind: Service
 metadata:
- name: lb-service
- labels:
-   app: lb-service
+ name: flaskdemo
 spec:
- type: LoadBalancer
- ports:
- - port: 80
-   targetPort: 5000
+ type: NodePort
  selector:
    app: flaskdemo
+ ports:
+ - nodePort: 32412
+   protocol: TCP
+   port: 80
+   targetPort: 5000
 
 ---
 
